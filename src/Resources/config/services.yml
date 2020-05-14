@@ -1,0 +1,27 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+
+    BGalati\MonologSentryHandler\SentryHandler: ~
+
+    Temp\SentryBundle\Sentry\SentryFactory: ~
+
+    Sentry\State\HubInterface:
+        factory: ['@Temp\SentryBundle\Sentry\SentryFactory', 'create']
+        arguments:
+            $dsn: '%sentry.dsn%'
+            $environment: '%sentry.environment%'
+            $projectRoot: '%sentry.project_dir%'
+            $cacheDir: '%sentry.cache_dir%'
+            $vendorDir: '%sentry.vendor_dir%'
+            $release: '%sentry.tags.app_version%'
+            $phpUname: '%sentry.tags.php_uname%'
+            $phpSapiName: '%sentry.tags.php_sapi%'
+            $phpVersion: '%sentry.tags.php_version%'
+            $framework: '%sentry.tags.framework%'
+            $symfonyVersion: '%sentry.tags.symfony_version%'
+            $symfonyEnvironment: '%sentry.tags.symfony_environment%'
+
+    Monolog\Processor\PsrLogMessageProcessor:
+        tags: [monolog.processor]

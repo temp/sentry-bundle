@@ -1,0 +1,59 @@
+{
+    "name": "temp/sentry-bundle",
+    "type": "bundle",
+    "description": "temp sentry bundle",
+    "license": "proprietary",
+    "require": {
+        "php": "^7.4",
+        "ext-iconv": "*",
+        "bgalati/monolog-sentry-handler": "^1.2",
+        "nyholm/psr7": "^1.2.1",
+        "sentry/sentry": "^2.3",
+        "symfony/config": "^4.4 || ^5.0",
+        "symfony/dependency-injection": "^4.4 || ^5.0",
+        "symfony/http-client": "^4.4 || ^5.0",
+        "symfony/http-kernel": "^4.4 || ^5.0",
+        "symfony/yaml": "^4.4 || ^5.0",
+        "thecodingmachine/safe": "^1.0"
+    },
+    "require-dev": {
+        "brainbits/phpcs-standard": "^4.0@dev",
+        "ergebnis/phpstan-rules": "^0.15.0",
+        "jangregor/phpstan-prophecy": "^0.8.0",
+        "phpspec/prophecy-phpunit": "^2.0",
+        "phpstan/phpstan": "^0.12.25",
+        "phpunit/phpunit": "^9.1",
+        "psr/log": "^1.0",
+        "symfony/console": "^5.0",
+        "symfony/messenger": "^5.0",
+        "symfony/security-core": "^5.0",
+        "thecodingmachine/phpstan-safe-rule": "^1.0",
+        "thecodingmachine/phpstan-strict-rules": "^0.12.0"
+    },
+    "suggest": {
+        "symfony/console": "For the console listener",
+        "symfony/messenger": "For the messenger resetter",
+        "symfony/security-core": "For the user listener"
+    },
+    "config": {
+        "preferred-install": {
+            "*": "dist"
+        },
+        "sort-packages": true
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "2.0-dev"
+        }
+    },
+    "autoload": {
+        "psr-4": {
+            "Temp\\SentryBundle\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Temp\\SentryBundleTests\\": "tests/"
+        }
+    }
+}

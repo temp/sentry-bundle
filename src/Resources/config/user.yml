@@ -1,0 +1,8 @@
+services:
+    _defaults:
+        autoconfigure: true
+        autowire: true
+
+    Temp\SentryBundle\EventListener\SentryUserListener:
+        tags:
+            - "kernel.event_subscriber"
